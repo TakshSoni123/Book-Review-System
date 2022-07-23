@@ -22,6 +22,12 @@ function App() {
     });
   }
 
+  const login = () => {
+    Axios.post('http://localhost:3001/login', { username: usernameReg, password: passwordReg}).then((response) => {
+      console.log(response);
+    });
+  }
+
   return (
     <div className="App">
       <div className='register'>
@@ -46,9 +52,13 @@ function App() {
       </div>
       <div className='login'>
         <h1>Login</h1>
-        <input type="text" placeholder="Username..."></input>
-        <input type="password" placeholder="Password..."></input>
-        <button>Login</button>
+        <input type="text" placeholder="Username..." onChange={(e) => {
+          setUserNameReg(e.target.value);
+        }}></input>
+        <input type="password" placeholder="Password..." onChange={(e) => {
+          setRePasswordReg(e.target.value);
+        }}></input>
+        <button onClick={login}>Login</button>
       </div>
     </div>
   );
