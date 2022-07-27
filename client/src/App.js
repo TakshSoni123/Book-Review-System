@@ -16,6 +16,9 @@ function App() {
   const [passwordReg, setPasswordReg] = useState('')
   const [rePasswordReg, setRePasswordReg] = useState('')
 
+  const [loginUsername, setLoginUsername] = useState('')
+  const [loginPassword, setLoginPassword] = useState('')
+
   const register = () => {
     Axios.post('http://localhost:3001/register', { username: usernameReg, password: passwordReg, repassword: rePasswordReg }).then((response) => {
       console.log(response);
@@ -23,8 +26,9 @@ function App() {
   }
 
   const login = () => {
-    Axios.post('http://localhost:3001/login', { username: usernameReg, password: passwordReg}).then((response) => {
+    Axios.post('http://localhost:3001/login', { username: loginUsername, password: loginPassword}).then((response) => {
       console.log(response);
+
     });
   }
 
@@ -53,10 +57,10 @@ function App() {
       <div className='login'>
         <h1>Login</h1>
         <input type="text" placeholder="Username..." onChange={(e) => {
-          setUserNameReg(e.target.value);
+          setLoginUsername(e.target.value);
         }}></input>
         <input type="password" placeholder="Password..." onChange={(e) => {
-          setRePasswordReg(e.target.value);
+          setLoginPassword(e.target.value);
         }}></input>
         <button onClick={login}>Login</button>
       </div>
