@@ -1,26 +1,27 @@
-export const signup = user => {
+export const signup = user => (
     fetch("api/user", {
-        method: "POST",
-        body: JSON.stringify(user),
-        headers: {
-            "Content-Type": "application/json"
-        }
-    });
-};
+      method: "POST",
+      body: JSON.stringify(user),
+      headers: {
+        "Content-Type": "application/json"
+      }
+    })
+  );
+  
 
-export const login = user => {
+export const login = user => (
     fetch("api/session", {
         method: "POST",
         body: JSON.stringify(user),
         headers: {
             "Content-Type": "application/json"
         }
-    });
-};
+    })
+);
 
 
-export const logout = () => {
+export const logout = () => (
     fetch("api/session", {
         method: "DELETE"
     })
-};
+);

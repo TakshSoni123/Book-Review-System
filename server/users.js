@@ -12,7 +12,7 @@ userRoutes.post("", async (req, res) => {
         const newUser  = new User({username, email, password});
         const sessionUser = sessionizeUser(newUser);
         await newUser.save();
-        console.log(req);
+        // console.log(req);
         req.session.user = sessionUser;
         console.log("New user created");
         console.log("Username: "+username);
